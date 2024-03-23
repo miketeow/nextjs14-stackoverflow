@@ -1,7 +1,5 @@
 import ThemeToggler from "@/components/theme-toggler";
 import { SignedIn, UserButton } from "@clerk/nextjs";
-import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import MobileNav from "./mobile-nav";
 import Logo from "./logo";

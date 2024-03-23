@@ -14,7 +14,7 @@ const GlobalSearch = () => {
           className="cursor-pointer"
         />
         <Input
-          className="shadow-none outline-none focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 border-none bg-secondary"
+          className="shadow-none outline-none focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 border-none bg-input"
           type="text"
           placeholder="Search globally"
         />
