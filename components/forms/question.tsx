@@ -18,6 +18,7 @@ import { Button } from "../ui/button";
 import { Editor } from "@tinymce/tinymce-react";
 import { Badge } from "../ui/badge";
 import Image from "next/image";
+import { createQuestion } from "@/lib/actions/question";
 
 const type: any = "create";
 const Question = () => {
@@ -33,11 +34,12 @@ const Question = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof QuestionSchema>) {
+  async function onSubmit(values: z.infer<typeof QuestionSchema>) {
     setIsSubmitting(true);
     try {
       // make async call to API to create a question
       // contain all form data
+      await createQuestion({});
       //navigate to home page
     } catch (error) {
     } finally {
@@ -111,6 +113,8 @@ const Question = () => {
               <FormControl className="mt-3.5">
                 <Editor
                   apiKey={process.env.NEXT_PUBLIC_TINY_EDITOR_API_KEY}
+                  onBlur={field.onBlur}
+                  onEditorChange={(content) => field.onChange(content)}
                   init={{
                     height: 350,
                     menubar: false,
@@ -126,7 +130,7 @@ const Question = () => {
                       { value: "Email", title: "Email" },
                     ],
                   }}
-                  initialValue="Welcome to TinyMCE!"
+                  initialValue=""
                 />
               </FormControl>
               <FormDescription className="mt-2.5 text-slate-300 text-[14px] font-normal leading-5">
